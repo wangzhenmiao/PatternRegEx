@@ -37,7 +37,12 @@ public class TestPattern {
         boolean rsIgnore = matIgnore.find();
         System.out.println(rsIgnore);
 
-        //
+        //项目中的校验
+        String jsonPath = "${curr.em}=OK";
+        Pattern pattern = Pattern.compile("(\\$\\{[^\\}]+})");
+        Matcher matJsonPath = pattern.matcher(jsonPath);
+        boolean reJsonPath = matJsonPath.find();
+        System.out.println(reJsonPath);
 
 
 
