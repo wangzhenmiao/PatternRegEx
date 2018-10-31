@@ -13,7 +13,7 @@ public class TestMatcher {
     public static void main(String[] args) {
 
 /*        介绍：
-       1、 group是针对（）来说的，group（0）就是指的整个串，group（1） 指的是第一个括号里的东西，group（2）指的第二个括号里的东西
+       1、 group是针对（）来说的，group()是整个串，group（0）就是指的整个串，group（1） 指的是第一个括号里的东西，group（2）指的第二个括号里的东西
         2、 据我观察：matcher.end 会把符合条件的索引值+1，例如："Hello,World!"中！的索引是11，但是matcher.end(0)输出的是12，在截取字符串的时候也注意吧
          3、public String substring(int beginIndex, int endIndex)
          beginIndex -- 起始索引（包括）, 索引从 0 开始。
@@ -24,6 +24,7 @@ public class TestMatcher {
         Pattern pattern = Pattern.compile("W(or)(ld!)");
         Matcher matcher = pattern.matcher(str);
         while(matcher.find()){
+            System.out.println("Group():"+matcher.group());//得到group()——整个匹配
             System.out.println("Group 0:"+matcher.group(0));//得到第0组——整个匹配
             System.out.println("Group 1:"+matcher.group(1));//得到第一组匹配——与(or)匹配的
             System.out.println("Group 2:"+matcher.group(2));//得到第二组匹配——与(ld!)匹配的，组也就是子表达式
