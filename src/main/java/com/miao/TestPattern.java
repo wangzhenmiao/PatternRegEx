@@ -1,5 +1,7 @@
 package com.miao;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -43,6 +45,17 @@ public class TestPattern {
         Matcher matJsonPath = pattern.matcher(jsonPath);
         boolean reJsonPath = matJsonPath.find();
         System.out.println(reJsonPath);
+
+        //
+        jsonPath = "${curr.data.products[2].product_id}= 1534994141512";
+        Map<String,String> paramData = new HashMap<String,String>();
+        Pattern pattern1 = Pattern.compile("(\\$\\{[^\\}]+})");
+        Matcher matcher = pattern1.matcher(jsonPath);
+        while(matcher.find()){
+            String paramCode = matcher.group(1);
+//            paramData.put(formatParamCode(paramCode), StringUtils.EMPTY);
+            System.out.println(paramCode);
+        }
 
 
 
